@@ -48,8 +48,6 @@ model Activity {
 
 model Link {
   id      String @id @default(uuid())
-  title   String
-  url     String
   trip_id String
 
   trip Trip @relation(fields: [trip_id], references: [id])

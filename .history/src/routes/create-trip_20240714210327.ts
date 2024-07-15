@@ -32,11 +32,11 @@ export async function createTrip(app: FastifyInstance) {
       } = request.body;
 
       if (dayjs(starts_at).isBefore(new Date())) {
-        throw new Error("Invalid start date");
+        throw new Error("Invalid Start Date");
       }
 
       if (dayjs(ends_at).isBefore(starts_at)) {
-        throw new Error("Invalid end date");
+        throw new Error("Invalid End Date");
       }
 
       const trip = await prisma.trip.create({
